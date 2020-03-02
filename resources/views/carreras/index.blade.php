@@ -21,6 +21,15 @@
             <strong>{{session('modificado')}}</strong>
           </div>
         @endif
+
+        @if(session('eliminado'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <strong>{{session('eliminado')}}</strong>
+          </div>
+        @endif
         <h1>Carreras <a class="btn btn-success float-right" href="{{route('carreras.create')}}"><i class="fa fa-plus-circle"></i> Nuevo</a></h1>
     <table class="table table-responsive-sm table-striped">
 <thead>

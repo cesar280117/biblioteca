@@ -71,10 +71,16 @@ class CarreraController extends Controller
 
     public function destroy($id)
     {
-        //
+        $carrera=Carrera::findOrFail($id);
+        $carrera->delete();
+        return redirect()->route('carreras.index')->with('eliminado', 'Se elimino correctamente la carrera');
+
+
     }
 
     public function confirm($id)
     {
+        $carrera=Carrera::findOrFail($id);
+        return view('carreras.confirm',compact('carrera'));
     }
 }

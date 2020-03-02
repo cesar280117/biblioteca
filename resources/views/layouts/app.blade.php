@@ -240,6 +240,21 @@
                             </li>
 
 
+                            
+                            
+                            <li class="nav-item">
+                                <a href="/maquinas"
+                                    class="text-light {{ Request::path() === 'maquinas' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fas fa-laptop"></i>
+                                    <p>
+                                        Maquinas
+                                        <?php use App\Maquina; $users_count = Maquina::all()->count(); ?>
+                                        <span class="right badge badge-danger">{{ $users_count ?? '0' }}</span>
+                                    </p>
+                                </a>
+                            </li>
+
+
 
 
                             <li class="nav-item">
