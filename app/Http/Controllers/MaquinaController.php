@@ -14,7 +14,11 @@ class MaquinaController extends Controller
 
     public function index()
     {
-        $maquinas = Maquina::all();
+        $query = trim(request('busqueda'));
+        $maquinas = Maquina::where('num_maquina', 'like', '%'.$query.'%')
+            ->orderBy('num_maquina', 'asc')
+            ->paginate(20);
+
         return view('maquinas.index', compact('maquinas'));
     }
     public function create()

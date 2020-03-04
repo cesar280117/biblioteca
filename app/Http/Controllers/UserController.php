@@ -15,8 +15,15 @@ class UserController extends Controller
 
     public function index()
     {
-        $usuarios = User::all();
-        return view('usuarios.index', compact('usuarios'));
+        if (request()) {
+            $query = trim(request('busqueda'));
+            $usuarios = User::where('id', '=', $query)
+                ->orwhere('name', 'like', '%' . $query . '%')
+                ->orderBy('id', 'asc')
+                ->paginate(40);
+
+            return view('usuarios.index', compact('usuarios'));
+        }
     }
 
 
@@ -62,11 +69,11 @@ class UserController extends Controller
 
     public function update($id)
     {
-      //validacion de usuarios
-      request()->validate([
-        'name' => 'required|max:255',
-        'email' => 'required|max:255|email',
-    ]);
+        //validacion de usuarios
+        request()->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255|email',
+        ]);
 
 
 

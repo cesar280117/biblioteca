@@ -59,5 +59,6 @@
         
     </tbody>
 </table>
+{{$docentes->links()}}
 </div>
 @endsection

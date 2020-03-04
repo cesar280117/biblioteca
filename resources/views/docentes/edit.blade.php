@@ -33,6 +33,22 @@
         <label >Apellido materno</label>
         <input type="text" value="{{$docente->apellido_materno}}" class="form-control text-capitalize" name="apellido_materno" placeholder="Apellido materno">
       </div>
+
+      <div class="form-group">
+        <label >Carrera</label>
+<select class="form-control" name="carrera">
+  <option>{{$docente->carrera}}</option>
+  <option value="">------------------------------------</option>
+  <?php use App\Carrera; $carreras=Carrera::all();?>
+  @foreach ($carreras as $carrera)
+  <option >{{$carrera->nombre}}</option>
+
+  @endforeach
+
+</select>
+
+      </div>
+      
       <input type="submit" class="btn btn-success" value="Guardar">
       <a href="{{route('docentes.index')}}" class="btn btn-secondary">Regresar </a>
     

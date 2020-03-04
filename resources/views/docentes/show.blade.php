@@ -20,6 +20,12 @@
         <label >Apellido materno</label>
         <input type="text" value="{{$docente->apellido_materno}}" disabled class="form-control text-capitalize" name="apellido_materno" placeholder="Apellido materno">
       </div>
+
+      <div class="form-group">
+        <label >Carrera</label>
+        <input type="text" value="{{$docente->carrera}}" disabled class="form-control text-capitalize" name="apellido_materno" placeholder="Apellido materno">
+      </div>
+
       <a href="{{route('docentes.index')}}" class="btn btn-secondary">Regresar </a>
     
   </form>

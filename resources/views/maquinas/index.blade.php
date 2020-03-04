@@ -56,6 +56,7 @@
         
     </tbody>
 </table>
+{{$maquinas->links()}}
 </div>
 
 @endsection

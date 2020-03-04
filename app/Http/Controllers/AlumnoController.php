@@ -15,8 +15,15 @@ class AlumnoController extends Controller
 
     public function index()
     {
-        $alumnos = Alumno::all();
-        return view('alumnos.index', compact('alumnos'));
+        if (request()) {
+            $query = trim(request('busqueda'));
+            $alumnos = Alumno::where('id', '=', $query)
+                ->orwhere('nombre', 'like', '%' . $query . '%')
+                ->orderBy('id', 'asc')
+                ->paginate(40);
+
+            return view('alumnos.index', compact('alumnos'));
+        }
     }
 
     public function create()
@@ -52,8 +59,8 @@ class AlumnoController extends Controller
 
     public function show($id)
     {
-        $alumno=Alumno::findOrFail($id);
-        return view('alumnos.show',compact('alumno'));
+        $alumno = Alumno::findOrFail($id);
+        return view('alumnos.show', compact('alumno'));
     }
 
 
@@ -98,6 +105,4 @@ class AlumnoController extends Controller
         $alumno = Alumno::findOrFail($id);
         return view('alumnos.confirm', compact('alumno'));
     }
-
-    
 }

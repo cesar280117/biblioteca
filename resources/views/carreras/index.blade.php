@@ -54,7 +54,7 @@
 </tbody>
 
     </table>
-    
+    {{$carreras->links()}}
     </div>
 
 @endsection

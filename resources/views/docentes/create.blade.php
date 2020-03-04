@@ -35,6 +35,21 @@
         <label >Apellido materno</label>
         <input type="text" class="form-control text-capitalize" name="apellido_materno" placeholder="Apellido materno">
       </div>
+
+      <div class="form-group">
+        <label >Carrera</label>
+<select class="form-control" name="carrera">
+  <option value=""></option>
+  <?php use App\Carrera; $carreras=Carrera::all();?>
+  @foreach ($carreras as $carrera)
+  <option >{{$carrera->nombre}}</option>
+
+  @endforeach
+
+</select>
+
+      </div>
+      
       <input type="submit" class="btn btn-success" value="Guardar">
       <input type="reset" value="Borrar" class="btn btn-danger">
     

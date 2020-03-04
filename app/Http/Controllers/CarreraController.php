@@ -15,7 +15,12 @@ class CarreraController extends Controller
 
     public function index()
     {
-        $carreras = Carrera::all();
+        $query = trim(request('busqueda'));
+        $carreras = Carrera::where('id', '=', $query)
+            ->orwhere('nombre', 'LIKE', '%' . $query . '%')
+            ->orderBy('id', 'asc')
+            ->paginate(40);
+
         return view('carreras.index', compact('carreras'));
     }
 
@@ -71,16 +76,14 @@ class CarreraController extends Controller
 
     public function destroy($id)
     {
-        $carrera=Carrera::findOrFail($id);
+        $carrera = Carrera::findOrFail($id);
         $carrera->delete();
         return redirect()->route('carreras.index')->with('eliminado', 'Se elimino correctamente la carrera');
-
-
     }
 
     public function confirm($id)
     {
-        $carrera=Carrera::findOrFail($id);
-        return view('carreras.confirm',compact('carrera'));
+        $carrera = Carrera::findOrFail($id);
+        return view('carreras.confirm', compact('carrera'));
     }
 }

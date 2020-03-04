@@ -43,11 +43,14 @@
                 <!-- SEARCH FORM -->
                 <form class="form-inline ml-3">
                     <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Buscar..."
+                        <input class="form-control form-control-navbar" name="busqueda" type="search" placeholder="Buscar..."
                             aria-label="Search">
                         <div class="input-group-append">
-                            <button class="btn btn-navbar" type="submit">
+                            <button title="Buscar..." class="btn btn-navbar" type="submit">
                                 <i class="fas fa-search"></i>
+                            </button>
+                            <button title="Limpiar busqueda" class="btn btn-navbar" type="submit">
+                                <i class="fas fa-trash"></i>
                             </button>
                         </div>
                     </div>
@@ -270,6 +273,10 @@
                             </li>
 
 
+                            
+                         
+
+
 
 
                             <li class="nav-item has-treeview">
@@ -319,16 +326,18 @@
 
                 <!-- Main content -->
                 <section class="content">
-                    @yield('content')
+                    
+                        @yield('content')
+
                 </section>
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer">
                 <!-- NO QUITAR -->
-                <strong>Tutoriales YouTube
+                <strong>Universidad Estatal De Sonora
                     <div class="float-right d-none d-sm-inline-block">
-                        <b>Version</b> 1.0
+                        <b>Creador: </b>Ing. Cesar Eduardo Romero Hernandez (6861707939)
                     </div>
             </footer>
 
