@@ -54,6 +54,7 @@
                 <a class="btn btn-primary my-1" href="{{route('docentes.edit',$docente->id)}}"><i class="fa fa-edit"></i> Editar</a>
                 <a class="btn btn-danger my-1" href="{{route('docentes.confirm',$docente->id)}}"><i class="fa fa-trash"></i> Eliminar</a>
             </td>
+            
         </tr>  
         @endforeach
         
